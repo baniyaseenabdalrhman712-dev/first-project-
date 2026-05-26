@@ -5,7 +5,7 @@
    (digits only, no +, spaces, or dashes).
    Example: "962791234567" for +962 79 123 4567
 ──────────────────────────────────────────────────────────────*/
-const WA_NUMBER = '962XXXXXXXXX'; // ← REPLACE THIS
+const WA_NUMBER = '962775521607';
 
 /* ── Theme toggle ────────────────────────────────────────────── */
 const html = document.documentElement;
