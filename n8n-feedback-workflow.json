@@ -1,0 +1,115 @@
+{
+  "name": "Course Feedback Classifier",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "تقييم الدورة التدريبية",
+        "formDescription": "شاركنا رأيك في الدورة",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "الاسم",
+              "fieldType": "text",
+              "placeholder": "أدخل اسمك هنا",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "الفيدباك عن الدورة",
+              "fieldType": "textarea",
+              "placeholder": "اكتب رأيك في الدورة...",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "respondWith": "redirect",
+          "redirectUrl": ""
+        }
+      },
+      "id": "form-trigger",
+      "name": "Form - إدخال البيانات",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "feedback-form-001"
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "أنت محلل فيدباك متخصص. مهمتك تصنيف تعليقات الطلاب على الدورات التدريبية.\n\nصنّف الفيدباك إلى واحدة من الفئتين:\n- **ذكي**: إذا كان الفيدباك مفيداً، محدداً، بنّاءً، يحتوي على نقاط واضحة، اقتراحات حقيقية، أو تحليل للمحتوى.\n- **غير مفيد**: إذا كان الفيدباك مبهماً، فارغاً من المعنى، غير محدد، أو لا يحتوي على معلومات قابلة للتنفيذ.\n\nأجب بالتنسيق التالي فقط:\n{\n  \"التصنيف\": \"ذكي\" أو \"غير مفيد\",\n  \"السبب\": \"جملة واحدة تشرح سبب التصنيف\",\n  \"نقاط_مميزة\": \"أبرز نقطة في الفيدباك\"\n}"
+            },
+            {
+              "role": "user",
+              "content": "=الاسم: {{ $json['الاسم'] }}\n\nالفيدباك: {{ $json['الفيدباك عن الدورة'] }}"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "openai-classify",
+      "name": "AI - تصنيف الفيدباك",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1,
+      "position": [500, 300],
+      "credentials": {
+        "openAiApi": {
+          "id": "openai-creds",
+          "name": "OpenAI API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const name = $('Form - إدخال البيانات').item.json['الاسم'];\nconst feedback = $('Form - إدخال البيانات').item.json['الفيدباك عن الدورة'];\nconst aiResponse = $input.item.json.message.content;\n\nlet result;\ntry {\n  result = JSON.parse(aiResponse);\n} catch(e) {\n  result = { 'التصنيف': 'غير محدد', 'السبب': aiResponse, 'نقاط_مميزة': '-' };\n}\n\nreturn {\n  الاسم: name,\n  الفيدباك: feedback,\n  التصنيف: result['التصنيف'],\n  السبب: result['السبب'],\n  نقاط_مميزة: result['نقاط_مميزة'],\n  الوقت: new Date().toLocaleString('ar-SA')\n};"
+      },
+      "id": "format-result",
+      "name": "تنسيق النتيجة",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "html",
+        "html": "=<!DOCTYPE html>\n<html dir=\"rtl\" lang=\"ar\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>نتيجة التقييم</title>\n  <style>\n    body { font-family: Arial, sans-serif; display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0; background:#f0f4f8; }\n    .card { background:white; padding:40px; border-radius:16px; box-shadow:0 4px 20px rgba(0,0,0,0.1); max-width:500px; width:90%; text-align:center; }\n    .badge { display:inline-block; padding:10px 30px; border-radius:50px; font-size:24px; font-weight:bold; margin:20px 0; }\n    .smart { background:#d4edda; color:#155724; border:2px solid #28a745; }\n    .dumb  { background:#f8d7da; color:#721c24; border:2px solid #dc3545; }\n    .reason { background:#f8f9fa; padding:15px; border-radius:8px; margin:15px 0; color:#555; }\n    h2 { color:#333; margin-bottom:5px; }\n    .name { color:#007bff; font-size:20px; font-weight:bold; }\n  </style>\n</head>\n<body>\n  <div class=\"card\">\n    <h2>نتيجة تقييم الفيدباك</h2>\n    <p>شكراً <span class=\"name\">{{ $json.الاسم }}</span>!</p>\n    <div class=\"badge {{ $json.التصنيف === 'ذكي' ? 'smart' : 'dumb' }}\">\n      {{ $json.التصنيف === 'ذكي' ? '🧠 فيدباك ذكي' : '💤 فيدباك غير مفيد' }}\n    </div>\n    <div class=\"reason\">\n      <strong>السبب:</strong> {{ $json.السبب }}\n    </div>\n    <p><strong>أبرز نقطة:</strong> {{ $json['نقاط_مميزة'] }}</p>\n    <small style=\"color:#999\">{{ $json.الوقت }}</small>\n  </div>\n</body>\n</html>"
+      },
+      "id": "show-result",
+      "name": "عرض النتيجة",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1020, 300]
+    }
+  ],
+  "connections": {
+    "Form - إدخال البيانات": {
+      "main": [
+        [{ "node": "AI - تصنيف الفيدباك", "type": "main", "index": 0 }]
+      ]
+    },
+    "AI - تصنيف الفيدباك": {
+      "main": [
+        [{ "node": "تنسيق النتيجة", "type": "main", "index": 0 }]
+      ]
+    },
+    "تنسيق النتيجة": {
+      "main": [
+        [{ "node": "عرض النتيجة", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["feedback", "ai", "arabic"],
+  "meta": {
+    "instanceId": "n8n-feedback-classifier"
+  }
+}
