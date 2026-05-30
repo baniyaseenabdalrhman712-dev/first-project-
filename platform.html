@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="مسار — منصة تعليمية لطلاب الجامعات، شرح المواد الجامعية بأسلوب مبسط وعلمي." />
+  <title>مسار — المنصة التعليمية الجامعية</title>
+  <link rel="stylesheet" href="platform.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── Navbar ──────────────────────────────────────────────── -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-icon">م</span>
+        <span class="logo-text">مسار</span>
+      </a>
+
+      <div class="nav-search" id="navSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" placeholder="ابحث عن مادة، محاضرة، أو مدرس..." id="searchInput" />
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#courses" class="nav-link active">المواد</a></li>
+        <li><a href="#tracks" class="nav-link">المسارات</a></li>
+        <li><a href="#instructors" class="nav-link">المدرسون</a></li>
+        <li><a href="#about" class="nav-link">عن المنصة</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon" id="themeToggle" aria-label="تبديل الوضع الليلي">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#" class="btn btn-ghost btn-sm">تسجيل الدخول</a>
+        <a href="#" class="btn btn-primary btn-sm">ابدأ مجاناً</a>
+        <button class="btn-icon hamburger" id="menuToggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────────────── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          منصة تعليمية موثوقة لأكثر من <strong>12,000</strong> طالب جامعي
+        </div>
+        <h1 class="hero-title">
+          افهم مادتك،<br>
+          <span class="gradient-text">مش بس تحفظها</span>
+        </h1>
+        <p class="hero-subtitle">
+          شرح مبسط ومعمّق للمواد الجامعية في الطب، الهندسة، القانون، والعلوم — بأسلوب تفاعلي يناسب طلاب الجامعات العربية.
+        </p>
+        <div class="hero-cta">
+          <a href="#courses" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M5 3l14 9-14 9V3z"/></svg>
+            ابدأ التعلم الآن
+          </a>
+          <a href="#tracks" class="btn btn-ghost btn-lg">اكتشف المسارات</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">+200</span>
+            <span class="stat-label">مادة جامعية</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">+1800</span>
+            <span class="stat-label">محاضرة مسجلة</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-number">+12k</span>
+            <span class="stat-label">طالب نشط</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="course-preview-card">
+          <div class="preview-header">
+            <div class="preview-avatar">د.م</div>
+            <div>
+              <div class="preview-name">د. محمد العمري</div>
+              <div class="preview-subject">التشريح البشري</div>
+            </div>
+            <span class="live-badge">مباشر</span>
+          </div>
+          <div class="preview-video">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+            </div>
+            <div class="preview-label">الجهاز العضلي الهيكلي — الجزء 2</div>
+          </div>
+          <div class="preview-progress">
+            <div class="progress-info">
+              <span>التقدم في المادة</span>
+              <span>68%</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+          </div>
+        </div>
+        <div class="floating-card fc-1">
+          <span class="fc-icon">🎯</span>
+          <div>
+            <div class="fc-title">اختبار أسبوعي</div>
+            <div class="fc-sub">10 أسئلة · 15 دقيقة</div>
+          </div>
+        </div>
+        <div class="floating-card fc-2">
+          <span class="fc-icon">🏆</span>
+          <div>
+            <div class="fc-title">أحمد أكمل المادة!</div>
+            <div class="fc-sub">علم الأحياء الخلوي</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Category Tabs ───────────────────────────────────────── -->
+  <section class="categories-bar" id="courses">
+    <div class="container">
+      <div class="cats-header">
+        <h2 class="section-title-sm">المواد حسب التخصص</h2>
+        <a href="#" class="link-all">عرض الكل →</a>
+      </div>
+      <div class="cats-scroll">
+        <button class="cat-btn active" data-cat="all">
+          <span class="cat-emoji">📚</span> الكل
+        </button>
+        <button class="cat-btn" data-cat="medicine">
+          <span class="cat-emoji">🩺</span> الطب
+        </button>
+        <button class="cat-btn" data-cat="engineering">
+          <span class="cat-emoji">⚙️</span> الهندسة
+        </button>
+        <button class="cat-btn" data-cat="law">
+          <span class="cat-emoji">⚖️</span> القانون
+        </button>
+        <button class="cat-btn" data-cat="science">
+          <span class="cat-emoji">🔬</span> العلوم
+        </button>
+        <button class="cat-btn" data-cat="business">
+          <span class="cat-emoji">📊</span> إدارة الأعمال
+        </button>
+        <button class="cat-btn" data-cat="cs">
+          <span class="cat-emoji">💻</span> علوم الحاسوب
+        </button>
+        <button class="cat-btn" data-cat="pharmacy">
+          <span class="cat-emoji">💊</span> الصيدلة
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Courses ────────────────────────────────────── -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">الأكثر متابعة</span>
+          <h2 class="section-title">مواد مميزة هذا الفصل</h2>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridView" aria-label="عرض شبكي">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="view-btn" id="listView" aria-label="عرض قائمة">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><rect x="3" y="5" width="18" height="2"/><rect x="3" y="11" width="18" height="2"/><rect x="3" y="17" width="18" height="2"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="courses-grid" id="coursesGrid">
+
+        <!-- Card 1 -->
+        <div class="course-card" data-cat="medicine">
+          <div class="card-thumbnail med">
+            <div class="card-overlay">
+              <button class="play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5 3l14 9-14 9V3z"/></svg>
+              </button>
+            </div>
+            <div class="card-emoji">🫀</div>
+            <span class="card-badge badge-hot">الأكثر متابعة</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat med-cat">الطب</span>
+              <div class="card-rating">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="card-title">التشريح البشري — الجهاز القلبي الوعائي</h3>
+            <p class="card-desc">فهم عميق لتشريح القلب، الأوعية الدموية، والدورة الدموية مع رسومات توضيحية تفاعلية.</p>
+            <div class="card-instructor">
+              <div class="inst-avatar med-av">د.م</div>
+              <span>د. محمد العمري</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-stats">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  3,241 طالب
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  24 ساعة
+                </span>
+              </div>
+              <a href="#" class="btn btn-primary btn-xs">ابدأ الآن</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="course-card" data-cat="engineering">
+          <div class="card-thumbnail eng">
+            <div class="card-overlay">
+              <button class="play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5 3l14 9-14 9V3z"/></svg>
+              </button>
+            </div>
+            <div class="card-emoji">⚡</div>
+            <span class="card-badge badge-new">جديد</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat eng-cat">الهندسة</span>
+              <div class="card-rating">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="card-title">الدوائر الكهربائية — المستوى الثاني</h3>
+            <p class="card-desc">من قوانين كيرشهوف إلى الدوائر المتردية — شرح تطبيقي مع حل مسائل امتحانات سابقة.</p>
+            <div class="card-instructor">
+              <div class="inst-avatar eng-av">م.س</div>
+              <span>م. سامي الحمدان</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-stats">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  1,892 طالب
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  18 ساعة
+                </span>
+              </div>
+              <a href="#" class="btn btn-primary btn-xs">ابدأ الآن</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="course-card" data-cat="law">
+          <div class="card-thumbnail law">
+            <div class="card-overlay">
+              <button class="play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5 3l14 9-14 9V3z"/></svg>
+              </button>
+            </div>
+            <div class="card-emoji">📜</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat law-cat">القانون</span>
+              <div class="card-rating">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>4.7</span>
+              </div>
+            </div>
+            <h3 class="card-title">القانون المدني — العقود والالتزامات</h3>
+            <p class="card-desc">شرح شامل لنظرية العقد، أركانه، أحكامه، والتطبيقات العملية في القانون الأردني والمقارن.</p>
+            <div class="card-instructor">
+              <div class="inst-avatar law-av">د.ر</div>
+              <span>د. رانيا الشمري</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-stats">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  2,105 طالب
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  30 ساعة
+                </span>
+              </div>
+              <a href="#" class="btn btn-primary btn-xs">ابدأ الآن</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="course-card" data-cat="cs">
+          <div class="card-thumbnail cs">
+            <div class="card-overlay">
+              <button class="play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5 3l14 9-14 9V3z"/></svg>
+              </button>
+            </div>
+            <div class="card-emoji">🧠</div>
+            <span class="card-badge badge-hot">رائج</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat cs-cat">علوم الحاسوب</span>
+              <div class="card-rating">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>4.9</span>
+              </div>
+            </div>
+            <h3 class="card-title">هياكل البيانات والخوارزميات</h3>
+            <p class="card-desc">من المصفوفات والقوائم المترابطة إلى الأشجار والرسوم البيانية — مع تطبيقات برمجية عملية.</p>
+            <div class="card-instructor">
+              <div class="inst-avatar cs-av">أ.ك</div>
+              <span>أ. كريم أبو علي</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-stats">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  4,520 طالب
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  40 ساعة
+                </span>
+              </div>
+              <a href="#" class="btn btn-primary btn-xs">ابدأ الآن</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="course-card" data-cat="science">
+          <div class="card-thumbnail sci">
+            <div class="card-overlay">
+              <button class="play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5 3l14 9-14 9V3z"/></svg>
+              </button>
+            </div>
+            <div class="card-emoji">⚛️</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat sci-cat">العلوم</span>
+              <div class="card-rating">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>4.8</span>
+              </div>
+            </div>
+            <h3 class="card-title">الكيمياء العضوية — المستوى الأول</h3>
+            <p class="card-desc">التسمية والبنية والتفاعلات — شرح مرئي مبسط للمركبات العضوية مع أمثلة حياتية وطبية.</p>
+            <div class="card-instructor">
+              <div class="inst-avatar sci-av">د.ن</div>
+              <span>د. نور الدين مصطفى</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-stats">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  2,830 طالب
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  22 ساعة
+                </span>
+              </div>
+              <a href="#" class="btn btn-primary btn-xs">ابدأ الآن</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="course-card" data-cat="business">
+          <div class="card-thumbnail biz">
+            <div class="card-overlay">
+              <button class="play-circle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M5 3l14 9-14 9V3z"/></svg>
+              </button>
+            </div>
+            <div class="card-emoji">📈</div>
+            <span class="card-badge badge-new">جديد</span>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="card-cat biz-cat">إدارة الأعمال</span>
+              <div class="card-rating">
+                <svg viewBox="0 0 24 24" fill="#f59e0b" width="14" height="14"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <span>4.6</span>
+              </div>
+            </div>
+            <h3 class="card-title">مبادئ المحاسبة المالية</h3>
+            <p class="card-desc">القوائم المالية، دورة المحاسبة، ومعايير الإفصاح — بأسلوب عملي وأمثلة من شركات حقيقية.</p>
+            <div class="card-instructor">
+              <div class="inst-avatar biz-av">أ.ه</div>
+              <span>أ. هالة القاسم</span>
+            </div>
+            <div class="card-footer">
+              <div class="card-stats">
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  1,640 طالب
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  28 ساعة
+                </span>
+              </div>
+              <a href="#" class="btn btn-primary btn-xs">ابدأ الآن</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="load-more">
+        <button class="btn btn-ghost btn-lg" id="loadMore">
+          عرض المزيد من المواد
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Learning Tracks ─────────────────────────────────────── -->
+  <section class="section section-alt" id="tracks">
+    <div class="container">
+      <span class="section-label">مسارات منظمة</span>
+      <h2 class="section-title">اختر مسارك الدراسي</h2>
+      <p class="section-subtitle">مسارات متكاملة مصممة حسب التخصصات الجامعية — من السنة الأولى حتى التخرج.</p>
+
+      <div class="tracks-grid">
+        <div class="track-card track-med">
+          <div class="track-icon">🩺</div>
+          <h3 class="track-title">مسار الطب</h3>
+          <p class="track-desc">من علم التشريح والفسيولوجيا إلى الطب الإكلينيكي والتشخيص</p>
+          <div class="track-meta">
+            <span>45 مادة</span>
+            <span>·</span>
+            <span>السنوات 1–6</span>
+          </div>
+          <div class="track-tags">
+            <span class="tag">التشريح</span>
+            <span class="tag">الفسيولوجيا</span>
+            <span class="tag">الباثولوجيا</span>
+            <span class="tag">+12</span>
+          </div>
+          <a href="#" class="btn btn-outline-track">استكشف المسار →</a>
+        </div>
+
+        <div class="track-card track-eng">
+          <div class="track-icon">⚙️</div>
+          <h3 class="track-title">مسار الهندسة</h3>
+          <p class="track-desc">من الرياضيات والفيزياء إلى التخصصات الهندسية المتقدمة</p>
+          <div class="track-meta">
+            <span>38 مادة</span>
+            <span>·</span>
+            <span>السنوات 1–5</span>
+          </div>
+          <div class="track-tags">
+            <span class="tag">الرياضيات</span>
+            <span class="tag">الميكانيك</span>
+            <span class="tag">الكهرباء</span>
+            <span class="tag">+9</span>
+          </div>
+          <a href="#" class="btn btn-outline-track">استكشف المسار →</a>
+        </div>
+
+        <div class="track-card track-cs">
+          <div class="track-icon">💻</div>
+          <h3 class="track-title">مسار علوم الحاسوب</h3>
+          <p class="track-desc">من البرمجة الأساسية إلى الذكاء الاصطناعي وأنظمة التشغيل</p>
+          <div class="track-meta">
+            <span>42 مادة</span>
+            <span>·</span>
+            <span>السنوات 1–4</span>
+          </div>
+          <div class="track-tags">
+            <span class="tag">البرمجة</span>
+            <span class="tag">الشبكات</span>
+            <span class="tag">قواعد البيانات</span>
+            <span class="tag">+8</span>
+          </div>
+          <a href="#" class="btn btn-outline-track">استكشف المسار →</a>
+        </div>
+
+        <div class="track-card track-law">
+          <div class="track-icon">⚖️</div>
+          <h3 class="track-title">مسار القانون</h3>
+          <p class="track-desc">من مبادئ القانون إلى التخصصات التجارية والجنائية والدولية</p>
+          <div class="track-meta">
+            <span>36 مادة</span>
+            <span>·</span>
+            <span>السنوات 1–4</span>
+          </div>
+          <div class="track-tags">
+            <span class="tag">المدني</span>
+            <span class="tag">التجاري</span>
+            <span class="tag">الجنائي</span>
+            <span class="tag">+7</span>
+          </div>
+          <a href="#" class="btn btn-outline-track">استكشف المسار →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ────────────────────────────────────────────── -->
+  <section class="section" id="features">
+    <div class="container">
+      <span class="section-label">لماذا مسار؟</span>
+      <h2 class="section-title">كل ما يحتاجه الطالب في مكان واحد</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap fi-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M15 10l4.553-2.069A1 1 0 0 1 21 8.87v6.26a1 1 0 0 1-1.447.899L15 14M3 8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/></svg>
+          </div>
+          <h3>محاضرات مسجلة عالية الجودة</h3>
+          <p>شرح مرئي واضح من مدرسين متخصصين — شاهد متى وأينما تريد.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap fi-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>اختبارات ومراجعات تفاعلية</h3>
+          <p>أسئلة بنك على نمط امتحانات الجامعة مع شرح كل إجابة.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap fi-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>مجتمع طلابي نشط</h3>
+          <p>اسأل، ناقش، وتعاون مع آلاف الطلاب في نفس التخصص.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap fi-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>ملخصات وملاحظات PDF</h3>
+          <p>كل محاضرة مرفقة بملخص منظم قابل للتنزيل والطباعة.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap fi-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>متابعة التقدم الأكاديمي</h3>
+          <p>لوحة تحكم تظهر تقدمك في كل مادة وتذكرك بالمراجعات الدورية.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap fi-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>تجربة متوافقة مع الجوال</h3>
+          <p>تعلّم من هاتفك في أي وقت — واجهة سلسة على كل الأجهزة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Instructors ─────────────────────────────────────────── -->
+  <section class="section section-alt" id="instructors">
+    <div class="container">
+      <span class="section-label">كادر أكاديمي</span>
+      <h2 class="section-title">تعرف على مدرسيك</h2>
+      <div class="instructors-grid">
+        <div class="instructor-card">
+          <div class="inst-photo med-bg">د.م</div>
+          <h4>د. محمد العمري</h4>
+          <p>أستاذ التشريح البشري</p>
+          <div class="inst-stats">
+            <span>12 مادة</span>
+            <span>·</span>
+            <span>⭐ 4.9</span>
+            <span>·</span>
+            <span>8.2k طالب</span>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="inst-photo eng-bg">م.س</div>
+          <h4>م. سامي الحمدان</h4>
+          <p>مهندس كهربائي ومدرس</p>
+          <div class="inst-stats">
+            <span>9 مواد</span>
+            <span>·</span>
+            <span>⭐ 4.8</span>
+            <span>·</span>
+            <span>5.1k طالب</span>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="inst-photo law-bg">د.ر</div>
+          <h4>د. رانيا الشمري</h4>
+          <p>دكتوراه في القانون المدني</p>
+          <div class="inst-stats">
+            <span>7 مواد</span>
+            <span>·</span>
+            <span>⭐ 4.7</span>
+            <span>·</span>
+            <span>3.8k طالب</span>
+          </div>
+        </div>
+        <div class="instructor-card">
+          <div class="inst-photo cs-bg">أ.ك</div>
+          <h4>أ. كريم أبو علي</h4>
+          <p>مهندس برمجيات ومدرس CS</p>
+          <div class="inst-stats">
+            <span>11 مادة</span>
+            <span>·</span>
+            <span>⭐ 4.9</span>
+            <span>·</span>
+            <span>9.4k طالب</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ────────────────────────────────────────── -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <span class="section-label">آراء الطلاب</span>
+      <h2 class="section-title">ماذا يقول طلابنا؟</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"مسار غير طريقة دراستي بالكامل. شرح التشريح بالفيديو أوضح بكثير من الكتاب، ورسبت المادة مرة وبعد مسار نجحت بامتياز!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#ef4444">س.أ</div>
+            <div>
+              <div class="author-name">سارة أحمد</div>
+              <div class="author-info">طب بشري، السنة الثالثة — الأردن</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card testimonial-featured">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"ما كنت أفهم الدوائر الكهربائية أبداً حتى لقيت شرح م. سامي على مسار. أسلوبه مبسط وعملي، والأمثلة من الواقع. انتهت معاناتي مع المادة."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#3b82f6">خ.م</div>
+            <div>
+              <div class="author-name">خالد محمود</div>
+              <div class="author-info">هندسة كهربائية، السنة الثانية — الأردن</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"الاختبارات التفاعلية هي أفضل ميزة — بعد كل محاضرة أحل أسئلة وأعرف مباشرة وين أنا ضعيف. المنصة استثمار حقيقي لوقتي."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:#10b981">ل.ع</div>
+            <div>
+              <div class="author-name">لينا عباس</div>
+              <div class="author-info">قانون، السنة الأولى — الأردن</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ──────────────────────────────────────────── -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <div class="cta-content">
+        <h2>جاهز تبدأ رحلتك الأكاديمية؟</h2>
+        <p>سجّل مجاناً اليوم واحصل على وصول فوري لأكثر من 50 محاضرة مجانية.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-white btn-lg">ابدأ مجاناً الآن</a>
+        <a href="#" class="btn btn-ghost-white btn-lg">تعرف على الخطط</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo footer-logo">
+          <span class="logo-icon">م</span>
+          <span class="logo-text">مسار</span>
+        </a>
+        <p>المنصة التعليمية الأولى لطلاب الجامعات العربية — نشرح كل ما درّسه الجامعة بأسلوب تفهمه.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="واتساب" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+          <a href="#" aria-label="تيليجرام" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.932z"/></svg>
+          </a>
+          <a href="#" aria-label="يوتيوب" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>المنصة</h4>
+        <ul>
+          <li><a href="#">جميع المواد</a></li>
+          <li><a href="#">المسارات الدراسية</a></li>
+          <li><a href="#">الاختبارات</a></li>
+          <li><a href="#">المدرسون</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>التخصصات</h4>
+        <ul>
+          <li><a href="#">الطب والصحة</a></li>
+          <li><a href="#">الهندسة</a></li>
+          <li><a href="#">علوم الحاسوب</a></li>
+          <li><a href="#">القانون</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>الدعم</h4>
+        <ul>
+          <li><a href="#">مركز المساعدة</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+          <li><a href="#">الشروط والأحكام</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2025 مسار — منصة تعليمية جامعية · إربد، الأردن</p>
+      <p>صُنع بهدف تعليمي حقيقي 🎓</p>
+    </div>
+  </footer>
+
+  <!-- ── Search Overlay ─────────────────────────────────────── -->
+  <div class="search-overlay" id="searchOverlay" hidden>
+    <div class="search-modal">
+      <div class="search-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" placeholder="ابحث عن مادة، محاضرة، أو مدرس..." id="overlaySearch" autofocus />
+        <button id="closeSearch" class="btn-icon">✕</button>
+      </div>
+      <div class="search-suggestions">
+        <div class="suggestion-group">
+          <h5>الأكثر بحثاً</h5>
+          <div class="suggestion-chips">
+            <button class="chip">التشريح البشري</button>
+            <button class="chip">الدوائر الكهربائية</button>
+            <button class="chip">الكيمياء العضوية</button>
+            <button class="chip">هياكل البيانات</button>
+            <button class="chip">القانون المدني</button>
+            <button class="chip">المحاسبة المالية</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="platform.js"></script>
+</body>
+</html>
